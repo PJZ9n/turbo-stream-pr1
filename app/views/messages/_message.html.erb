@@ -1,0 +1,15 @@
+<%= turbo_stream_from message %>
+
+<div class="card my-2" id="<%= dom_id message %>">
+  <div class="card-header">
+    <%= l message.created_at %>
+  </div>
+  <div class="card-body">
+    <%= message.content %>
+    <%= turbo_frame_tag dom_id(message, :edit) %>
+  </div>
+  <div class="card-footer">
+    <%= link_to "Edit", edit_message_path(message), data: { turbo_frame: dom_id(message, :edit) } %>
+    <%= link_to "Destroy", message_path(message), data: { turbo_method: :delete } %>
+  </div>
+</div>

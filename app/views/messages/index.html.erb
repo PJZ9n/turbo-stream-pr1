@@ -1,0 +1,13 @@
+<%= turbo_stream_from :messages %>
+
+<h3>Messages</h3>
+
+<div class="card my-2">
+  <div class="card-body">
+    <%= turbo_frame_tag :new_message, src: new_message_path, loading: :lazy %>
+  </div>
+</div>
+
+<div id="messages">
+  <%= render @messages %>
+</div>

@@ -8,9 +8,14 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <%# hack for popperjs error: https://github.com/rails/importmap-rails/issues/65#issuecomment-999939960 %>
+    <script>window.process = {env: {}}</script>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
